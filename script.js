@@ -1,24 +1,41 @@
-let name;
+function getName() {
+    let name;
+    do {
+        name = prompt("Введите своё имя");
+    } while (name === "" || name === null);
+    return name;
+}
 
-do {
-    name = prompt("Введите своё имя");
-} while (name === "" || name === null);
+function getYearOfBirth() {
+    let borndata;
+    do {
+        borndata = prompt("Введите год рождения");
+    } while (borndata === "" || isNaN(borndata));
+    return Number(borndata);
+}
 
-let borndata;
+function getCurrentYear() {
+    let currentYear;
+    do {
+        currentYear = prompt("Введите нынешний год");
+    } while (currentYear === "" || isNaN(currentYear));
+    return Number(currentYear);
+}
 
-do {
-    borndata = prompt("Введите год рождение")
-} while ( borndata === "" || isNaN(borndata))
+function calculateAge(currentYear, birthYear) {
+    return currentYear - birthYear;
+}
 
-let data;
+function main() {
+    const name = getName();
+    const borndata = getYearOfBirth();
+    const currentYear = getCurrentYear();
+    const age = calculateAge(currentYear, borndata);
+    alert(`${name} ваш возраст: ${age}`);
+}
 
-do {
-    data = prompt("Введите нынешний год")
-} while ( data === "" || isNaN(data))
+main();
 
-let age = data - borndata
-
-alert(`${name} ваш возраст: ${age}`);
 
 
 function randomizer (min = 1, max = 100) {
