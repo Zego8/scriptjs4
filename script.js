@@ -1,41 +1,14 @@
-function getName() {
-    let name;
-    do {
-        name = prompt("Введите своё имя");
-    } while (name === "" || name === null);
-    return name;
+const name = prompt("Введите ваше имя:");
+const birthYear = (prompt("Введите год рождения"));
+const currentYear = (prompt("Введите нынешний год"));
+
+
+function getAgeMessage(name, birthYear, currentYear) {
+  const age = currentYear - birthYear;
+  return `${name}, Ваш возраст ${age}`;
 }
 
-function getYearOfBirth() {
-    let borndata;
-    do {
-        borndata = prompt("Введите год рождения");
-    } while (borndata === "" || isNaN(borndata));
-    return Number(borndata);
-}
-
-function getCurrentYear() {
-    let currentYear;
-    do {
-        currentYear = prompt("Введите нынешний год");
-    } while (currentYear === "" || isNaN(currentYear));
-    return Number(currentYear);
-}
-
-function calculateAge(currentYear, birthYear) {
-    return currentYear - birthYear;
-}
-
-function main() {
-    const name = getName();
-    const borndata = getYearOfBirth();
-    const currentYear = getCurrentYear();
-    const age = calculateAge(currentYear, borndata);
-    alert(`${name} ваш возраст: ${age}`);
-}
-
-main();
-
+alert(getAgeMessage(name, birthYear, currentYear));
 
 
 function randomizer (min = 1, max = 100) {
